@@ -5,55 +5,48 @@
 }
 
 <h2>Index</h2>
+<form>
 
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Yritus</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Yritus_nimi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Yritus_nimi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Yritus_nimi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Kuupaev, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Kuupaev, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Kuupaev, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Asukoht, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Asukoht, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Asukoht, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Lisainfo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Lisainfo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Lisainfo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Ürituse nimi</label>
+        <input type="text" class="form-control" id="Yritus_nimi" placeholder="AnimeCON">
     </div>
-}
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Kuupäev</label>
+        <input type="datetime" class="form-control" id="Kuupaev" placeholder="25.05.2019">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Asukoht</label>
+        <input type="text" class="form-control" id="Asukoht" placeholder="Tallinn">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Lisainfo</label>
+        <input type="text" class="form-control" id="Lisainfo" placeholder="Turvameetmed">
+    </div>
+    <button onclick="submitForm();" >Loo uus üritus</button>
+
+    <script type="text/javascript">
+    function submitForm() {
+            var json = {
+                'Yritus_nimi': $('#Yritus_nimi').val(),
+                'Kuupaev': $('#Kuupaev').val(),
+                'Asukoht': $('#Asukoht').val(),
+                'Lisainfo': $('#Lisainfo').val()
+        };
+            console.log(json);
+            $.ajax({
+                method: "POST",
+                url: "api/YritusApi",
+                data: json
+            });
+        }</script>
+
+</form>    
+
+@*}*@
 
 <div>
     @Html.ActionLink("Back to List", "../Home")
