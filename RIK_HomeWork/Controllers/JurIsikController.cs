@@ -30,8 +30,9 @@ namespace RIK_HomeWork.Controllers
         }
 
         // POST: api/JurIsik
-        public void Post([FromBody]string value)
-        {
+        public void Post(JurIsik jurIsik) {
+            InsertAccess db = new InsertAccess();
+            db.InsertJurIsik(jurIsik);
         }
 
         // PUT: api/JurIsik/5

@@ -24,6 +24,13 @@ namespace RIK_HomeWork.DataAccess
                 connection.Execute("dbo.Event_Insert @Yritus_nimi, @Kuupaev, @Asukoht, @Lisainfo", yritus);
             }
         }
+        public void InsertJurIsik(JurIsik jurIsik)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DBHelper.CnnVal("Events")))
+            {
+                connection.Execute("dbo.Jurisik_Insert @Yritus_id, @Jurnimi, @Firmakood, @Makseviis, @Lisainfo", jurIsik);
+            }
+        }
 
     }
 }

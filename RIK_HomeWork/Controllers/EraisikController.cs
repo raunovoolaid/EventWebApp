@@ -37,7 +37,6 @@ namespace RIK_HomeWork.Controllers
         }
 
         // PUT: api/Eraisik/5
-        [HttpPut]
         public void Put(Eraisik eraisik)
         {
             UpdateAccess db = new UpdateAccess();
