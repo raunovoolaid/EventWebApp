@@ -44,6 +44,8 @@ namespace RIK_HomeWork.Controllers
         // DELETE: api/Yritus/5
         public void Delete(int id)
         {
+            DeleteAccess db = new DeleteAccess();
+            db.DeleteYritus(id);
         }
     }
 }

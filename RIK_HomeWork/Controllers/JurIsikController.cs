@@ -45,6 +45,8 @@ namespace RIK_HomeWork.Controllers
         // DELETE: api/JurIsik/5
         public void Delete(int id)
         {
+            DeleteAccess db = new DeleteAccess();
+            db.DeleteJurIsik(id);
         }
     }
 }
