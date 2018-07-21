@@ -185,10 +185,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\EraisikController.cs" />
+    <Compile Include="Controllers\EraisikApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JurIsikController.cs" />
-    <Compile Include="Controllers\YritusController.cs" />
+    <Compile Include="Controllers\JurIsikApiController.cs" />
+    <Compile Include="Controllers\LisaYritusController.cs" />
+    <Compile Include="Controllers\YritusApiController.cs" />
     <Compile Include="DataAccess\DeleteAccess.cs" />
     <Compile Include="DataAccess\GetAccess.cs" />
     <Compile Include="DataAccess\InsertAccess.cs" />
@@ -259,6 +260,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\LisaYritus\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

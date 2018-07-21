@@ -7,51 +7,35 @@
     <div class="col-md-6">
         <h2>Tulevased üritused</h2>
         <table class="table">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nimi</th>
-                <th scope="col">Kuupäev</th>
-                <th scope="col">Asukoht</th>
-                <th scope="col">Lisainfo</th>
-            </tr>
             @foreach (Yritus yritus in ViewBag.Yritus)
             {
                 if (yritus.Kuupaev > DateTime.Now)
                 {
-                <tr>
-                    <td scope="row">@yritus.Id</td>
-                    <td>@yritus.Yritus_nimi</td>
-                    <td>@yritus.Kuupaev</td>
-                    <td>@yritus.Asukoht</td>
-                    <td>@yritus.Lisainfo</td>
-                </tr>
+                    <tr>
+                        <td>@yritus.Yritus_nimi</td>
+                        <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
+                    </tr>
                 }
             }
         </table>
+        <div>
+            @Html.ActionLink("Lisa üritus", "../LisaYritus")
+        </div>
     </div>
     <div class="col-md-6">
         <h2>Toimunud üritused</h2>
         <table class="table">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nimi</th>
-                <th scope="col">Kuupäev</th>
-                <th scope="col">Asukoht</th>
-                <th scope="col">Lisainfo</th>
-            </tr>
             @foreach (Yritus yritus in ViewBag.Yritus)
             {
                 if (yritus.Kuupaev < DateTime.Now)
                 {
                     <tr>
-                        <td scope="row">@yritus.Id</td>
                         <td>@yritus.Yritus_nimi</td>
-                        <td>@yritus.Kuupaev</td>
-                        <td>@yritus.Asukoht</td>
-                        <td>@yritus.Lisainfo</td>
+                        <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
                     </tr>
                 }
             }
+
         </table>
     </div>
 </div>
