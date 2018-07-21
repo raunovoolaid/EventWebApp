@@ -185,9 +185,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\EraisikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="Controllers\JurIsikController.cs" />
+    <Compile Include="Controllers\YritusController.cs" />
+    <Compile Include="DataAccess\GetAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
