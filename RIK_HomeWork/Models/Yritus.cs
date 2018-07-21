@@ -13,5 +13,11 @@ namespace RIK_HomeWork.Models
         public string Asukoht { get; set; }
         public string Lisainfo { get; set; }
 
+        public string FullInfo {
+            get
+            {
+                return $"{Yritus_nimi} {Kuupaev}";
+            }            
+                }
     }
 }

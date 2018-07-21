@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RIK_HomeWork.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,9 +11,12 @@ namespace RIK_HomeWork.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<Yritus> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<Yritus> Yritused = new List<Yritus>();
+            DataAccess.DataAccess db = new DataAccess.DataAccess();
+            Yritused = db.GetYritused();
+            return Yritused;
         }
 
         // GET api/values/5
