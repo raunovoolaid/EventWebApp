@@ -11,17 +11,9 @@ namespace RIK_HomeWork.Controllers
 {
     public class YritusController : ApiController
     {
-        // GET: api/Yritus
-        //public IEnumerable<Yritus> Get()
-        //{
-        //    List<Yritus> Yritused = new List<Yritus>();
-        //    GetAccess db = new GetAccess();
-        //    Yritused = db.GetYritused(null);
-        //    return Yritused;
-        //}
-
+        
         // GET: api/Yritus/5
-        public IEnumerable<Yritus> Get(int? Id=null)
+        public List<Yritus> Get(int? Id=null)
         {
             List<Yritus> Yritused = new List<Yritus>();
             GetAccess db = new GetAccess();
@@ -35,12 +27,7 @@ namespace RIK_HomeWork.Controllers
             InsertAccess db = new InsertAccess();
             db.InsertYritus(yritus);
         }
-
-        // PUT: api/Yritus/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
+    
         // DELETE: api/Yritus/5
         public void Delete(int id)
         {
