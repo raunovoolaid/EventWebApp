@@ -30,13 +30,18 @@ namespace RIK_HomeWork.Controllers
         }
 
         // POST: api/Eraisik
-        public void Post([FromBody]string value)
+        public void Post(Eraisik eraisik)
         {
+            InsertAccess db = new InsertAccess();
+            db.InsertEraisik(eraisik);
         }
 
         // PUT: api/Eraisik/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public void Put(Eraisik eraisik)
         {
+            UpdateAccess db = new UpdateAccess();
+            db.UpdateEraisik(eraisik);
         }
 
         // DELETE: api/Eraisik/5

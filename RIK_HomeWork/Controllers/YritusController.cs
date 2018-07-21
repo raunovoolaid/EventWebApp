@@ -30,8 +30,10 @@ namespace RIK_HomeWork.Controllers
         }
 
         // POST: api/Yritus
-        public void Post([FromBody]string value)
+        public void Post(Yritus yritus)
         {
+            InsertAccess db = new InsertAccess();
+            db.InsertYritus(yritus);
         }
 
         // PUT: api/Yritus/5

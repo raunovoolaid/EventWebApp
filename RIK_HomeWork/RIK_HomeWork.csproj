@@ -190,6 +190,8 @@
     <Compile Include="Controllers\JurIsikController.cs" />
     <Compile Include="Controllers\YritusController.cs" />
     <Compile Include="DataAccess\GetAccess.cs" />
+    <Compile Include="DataAccess\InsertAccess.cs" />
+    <Compile Include="DataAccess\UpdateAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

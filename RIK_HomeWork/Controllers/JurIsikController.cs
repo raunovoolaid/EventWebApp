@@ -35,8 +35,10 @@ namespace RIK_HomeWork.Controllers
         }
 
         // PUT: api/JurIsik/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(JurIsik jurisik/*int id, string jurnimi, string firmakood, int makseviis, string lisainfo*/)
         {
+            UpdateAccess db = new UpdateAccess();
+            db.UpdateJurIsik(jurisik);
         }
 
         // DELETE: api/JurIsik/5
