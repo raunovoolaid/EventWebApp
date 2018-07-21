@@ -12,18 +12,21 @@ namespace RIK_HomeWork.Controllers
     public class EraisikController : ApiController
     {
         // GET: api/Eraisik
-        public IEnumerable<Eraisik> Get()
+        //public IEnumerable<Eraisik> Get()
+        //{
+        //    List<Eraisik> Eraisikud = new List<Eraisik>();
+        //    GetAccess db = new GetAccess();
+        //    Eraisikud = db.GetEraisikud(null);
+        //    return Eraisikud;
+        //}
+
+        // GET: api/Eraisik/5
+        public IEnumerable<Eraisik> Get(int? id = null)
         {
             List<Eraisik> Eraisikud = new List<Eraisik>();
             GetAccess db = new GetAccess();
-            Eraisikud = db.GetEraisikud(null);
+            Eraisikud = db.GetEraisikud(id);
             return Eraisikud;
-        }
-
-        // GET: api/Eraisik/5
-        public string Get(int id)
-        {
-            return "value";
         }
 
         // POST: api/Eraisik

@@ -12,16 +12,16 @@ namespace RIK_HomeWork.Controllers
     public class JurIsikController : ApiController
     {
         // GET: api/JurIsik
-        public IEnumerable<JurIsik> Get()
-        {
-            List<JurIsik> JurIsikud = new List<JurIsik>();
-            GetAccess db = new GetAccess();
-            JurIsikud = db.GetJurIsikud(null);
-            return JurIsikud;
-        }
+        //public IEnumerable<JurIsik> Get()
+        //{
+        //    List<JurIsik> JurIsikud = new List<JurIsik>();
+        //    GetAccess db = new GetAccess();
+        //    JurIsikud = db.GetJurIsikud(null);
+        //    return JurIsikud;
+        //}
 
         // GET: api/JurIsik/5
-        public IEnumerable<JurIsik> Get(int id)
+        public IEnumerable<JurIsik> Get(int? id = null)
         {
             List<JurIsik> JurIsikud = new List<JurIsik>();
             GetAccess db = new GetAccess();

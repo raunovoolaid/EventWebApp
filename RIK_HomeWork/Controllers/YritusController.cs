@@ -12,18 +12,21 @@ namespace RIK_HomeWork.Controllers
     public class YritusController : ApiController
     {
         // GET: api/Yritus
-        public IEnumerable<Yritus> Get()
+        //public IEnumerable<Yritus> Get()
+        //{
+        //    List<Yritus> Yritused = new List<Yritus>();
+        //    GetAccess db = new GetAccess();
+        //    Yritused = db.GetYritused(null);
+        //    return Yritused;
+        //}
+
+        // GET: api/Yritus/5
+        public IEnumerable<Yritus> Get(int? Id=null)
         {
             List<Yritus> Yritused = new List<Yritus>();
             GetAccess db = new GetAccess();
-            Yritused = db.GetYritused(null);
+            Yritused = db.GetYritused(Id);
             return Yritused;
-        }
-
-        // GET: api/Yritus/5
-        public string Get(int id)
-        {
-            return "value";
         }
 
         // POST: api/Yritus
