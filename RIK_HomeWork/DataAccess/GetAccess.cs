@@ -18,19 +18,19 @@ namespace RIK_HomeWork.DataAccess
                 return output;
             }
         }
-        public List<Eraisik> GetEraisikud(int? id)
+        public List<Eraisik> GetEraisikud(int yritus_id, int? id = null)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DBHelper.CnnVal("Events")))
             {
-                var output = connection.Query<Eraisik>("dbo.Eraisik_Select @Id", new { Id=id }).ToList();
+                var output = connection.Query<Eraisik>("dbo.Eraisik_Select @Id, @Yritus_id", new { Id = id, Yritus_id = yritus_id }).ToList();
                 return output;
             }
         }
-        public List<JurIsik> GetJurIsikud(int? id, int? yritus_id)
+        public List<JurIsik> GetJurIsikud(int yritus_id, int? id = null)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DBHelper.CnnVal("Events")))
             {
-                var output = connection.Query<JurIsik>("dbo.Jurisik_Select @Id @Yritus_id", new { Id = id , Yritus_id = yritus_id}).ToList();
+                var output = connection.Query<JurIsik>("dbo.Jurisik_Select @Id, @Yritus_id", new { Id = id , Yritus_id = yritus_id}).ToList();
                 return output;
             }
         }

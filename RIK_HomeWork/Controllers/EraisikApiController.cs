@@ -12,11 +12,11 @@ namespace RIK_HomeWork.Controllers
     public class EraisikApiController : ApiController
     {
         // GET: api/Eraisik/5
-        public IEnumerable<Eraisik> Get(int? id = null)
+        public IEnumerable<Eraisik> Get(int yritus_id, int? id = null)
         {
             List<Eraisik> Eraisikud = new List<Eraisik>();
             GetAccess db = new GetAccess();
-            Eraisikud = db.GetEraisikud(id);
+            Eraisikud = db.GetEraisikud(yritus_id, id);
             return Eraisikud;
         }
 

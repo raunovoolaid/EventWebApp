@@ -16,28 +16,24 @@
         <div class="panel">Ürituse nimi: @ViewBag.Yritus[0].Yritus_nimi</div>
         <div class="panel">Toimumisaeg: @ViewBag.Yritus[0].Kuupaev.ToString("dd.MM.yyyy")</div>
         <div class="panel">Koht:  @ViewBag.Yritus[0].Asukoht</div>
+        <div class="panel">Osalejad: 
+            <table class="table">
+                    @foreach (JurIsik jurisik in ViewBag.Jurisik)
+                    {
+                            <tr>
+                                <td>@jurisik.Jurnimi</td>
+                                <td>@jurisik.FirmaKood</td>
+                            </tr>
+                    }
+                    @foreach (Eraisik eraisik in ViewBag.Eraisik)
+                    {
+                            <tr>
+                                <td>@eraisik.Eesnimi  @eraisik.Perekonnanimi</td>
+                                <td>@eraisik.Isikukood</td>
+                            </tr>
+                    }
+            </table>
+        </div>        
     </div>
 </div>
-        @*<table class="table">
-            @foreach (Yritus yritus in ViewBag.Yritus)
-            {
-                if (yritus.Kuupaev > DateTime.Now)
-                {
-                    <tr>
-                        <td>@yritus.Yritus_nimi</td>
-                        <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
-                        <td>
-                            <button type="button" class="close" aria-label="Close">
-                                <span>@Html.ActionLink("Osavõtjad", "../LisaYritus")</span>
-                            </button>
-                        </td>
-                        <td>
-                            <button onclick="submitForm(@yritus.Id);" type="button" class="close" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
-                }
-            }
-        </table>*@
 

@@ -15,13 +15,21 @@ namespace RIK_HomeWork.Controllers
         //}
 
         // GET: LisaOsaleja/Index/5
-        public ActionResult Index(int? id)
+        public ActionResult Index(int? id = null)
         {
             if (id == null) return Redirect(Url.Content("~/"));
             ViewBag.Title = "Osaleja lisamine";
             YritusApiController yritusController = new YritusApiController();
             var yritused = yritusController.Get(id);
+            EraisikApiController eraisik = new EraisikApiController();
+            var eraisikud = eraisik.Get((int)id, null);
+            JurIsikApiController jurIsikApiController = new JurIsikApiController();
+            var jurisikud = jurIsikApiController.Get((int)id, null);
+
+
             ViewBag.Yritus = yritused;
+            ViewBag.Eraisik = eraisikud;
+            ViewBag.Jurisik = jurisikud;
             return View();
         }
 
