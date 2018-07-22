@@ -1,4 +1,13 @@
 ﻿@using RIK_HomeWork.Models;
+
+<script type="text/javascript">
+    function submitForm(id) {
+        $.ajax({
+            method: "DELETE",
+            url: "api/YritusApi/" + id,
+            success: location.reload()
+        });
+    }</script>
 <div class="page-header">
     <h1>Ürituste infosüsteem</h1>
     <p class="lead">Siin infosüsteemis näete olemasolevaid ja toiminud üritusi.</p>
@@ -15,18 +24,15 @@
                 <td>@yritus.Yritus_nimi</td>
                 <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
                 <td>
+                    <button type="button" class="close" aria-label="Close">
+                        <span >@Html.ActionLink("Osavõtjad", "../LisaYritus")</span>
+                    </button>
+                </td>
+                <td>
                     <button onclick="submitForm(@yritus.Id);" type="button" class="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </td>
-                <script type="text/javascript">
-                    function submitForm(id) {
-                        $.ajax({
-                            method: "DELETE",
-                            url: "api/YritusApi/" + id,
-                            success: location.reload()
-                        });
-                    }</script>
             </tr>
                 }
             }
