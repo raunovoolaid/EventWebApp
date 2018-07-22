@@ -24,8 +24,11 @@ namespace RIK_HomeWork.Controllers
         // POST: api/Yritus
         public void Post(Yritus yritus)
         {
-            InsertAccess db = new InsertAccess();
-            db.InsertYritus(yritus);
+            if(yritus.Kuupaev > DateTime.Now)
+            {
+                InsertAccess db = new InsertAccess();
+                db.InsertYritus(yritus);
+            }
         }
     
         // DELETE: api/Yritus/5
