@@ -26,11 +26,11 @@ namespace RIK_HomeWork.DataAccess
                 return output;
             }
         }
-        public List<JurIsik> GetJurIsikud(int? id)
+        public List<JurIsik> GetJurIsikud(int? id, int? yritus_id)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DBHelper.CnnVal("Events")))
             {
-                var output = connection.Query<JurIsik>("dbo.Jurisik_Select @Id", new { Id = id }).ToList();
+                var output = connection.Query<JurIsik>("dbo.Jurisik_Select @Id @Yritus_id", new { Id = id , Yritus_id = yritus_id}).ToList();
                 return output;
             }
         }

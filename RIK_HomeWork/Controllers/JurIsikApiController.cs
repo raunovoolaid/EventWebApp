@@ -12,11 +12,11 @@ namespace RIK_HomeWork.Controllers
     public class JurIsikApiController : ApiController
     {       
         // GET: api/JurIsik/5
-        public IEnumerable<JurIsik> Get(int? id = null)
+        public IEnumerable<JurIsik> Get(int? id = null, int? yritus_id = null)
         {
             List<JurIsik> JurIsikud = new List<JurIsik>();
             GetAccess db = new GetAccess();
-            JurIsikud = db.GetJurIsikud(id);
+            JurIsikud = db.GetJurIsikud(id, yritus_id);
             return JurIsikud;
         }
 

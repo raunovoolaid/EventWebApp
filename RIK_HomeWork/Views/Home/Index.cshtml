@@ -48,10 +48,15 @@
             {
                 if (yritus.Kuupaev < DateTime.Now)
                 {
-                    <tr>
-                        <td id="@yritus.Id">@yritus.Yritus_nimi</td>
-                        <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
-                    </tr>
+            <tr>
+                <td id="@yritus.Id">@yritus.Yritus_nimi</td>
+                <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
+                <td>
+                    <button type="button" class="close" aria-label="Close">
+                        <span>@Html.ActionLink("Osavõtjad", "../LisaYritus")</span>
+                    </button>
+                </td>
+            </tr>
                 }
             }
 
