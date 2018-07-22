@@ -26,7 +26,7 @@
         <label for="exampleFormControlInput1">Lisainfo</label>
         <input type="text" class="form-control" id="Lisainfo" placeholder="Turvameetmed">
     </div>
-    <button onclick="submitForm();" >Loo uus üritus</button>
+    <button onclick="submitForm();" type="button" class="btn btn-primary">Loo uus üritus</button>
 
     <script type="text/javascript">
     function submitForm() {
@@ -48,7 +48,7 @@
 
 @*}*@
 
-<div>
+<div type="button" class="btn btn-default mt-2">
     @Html.ActionLink("Back to List", "../Home")
 </div>
 

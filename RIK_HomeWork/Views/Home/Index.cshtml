@@ -11,10 +11,23 @@
             {
                 if (yritus.Kuupaev > DateTime.Now)
                 {
-                    <tr>
-                        <td>@yritus.Yritus_nimi</td>
-                        <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
-                    </tr>
+            <tr>
+                <td>@yritus.Yritus_nimi</td>
+                <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
+                <td>
+                    <button onclick="submitForm(@yritus.Id);" type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+                <script type="text/javascript">
+                    function submitForm(id) {
+                        $.ajax({
+                            method: "DELETE",
+                            url: "api/YritusApi/" + id,
+                            success: location.reload()
+                        });
+                    }</script>
+            </tr>
                 }
             }
         </table>
@@ -30,7 +43,7 @@
                 if (yritus.Kuupaev < DateTime.Now)
                 {
                     <tr>
-                        <td>@yritus.Yritus_nimi</td>
+                        <td id="@yritus.Id">@yritus.Yritus_nimi</td>
                         <td>@yritus.Kuupaev.ToString("dd.MM.yyyy")</td>
                     </tr>
                 }
