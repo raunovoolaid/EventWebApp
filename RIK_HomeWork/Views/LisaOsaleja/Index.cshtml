@@ -34,7 +34,7 @@
 <input type="radio" id="shortForm" name="frm" onclick="toggle(true)" checked> Eraisik
 <input type="radio" id="longForm" name="frm" onclick="toggle(false)"> Juriidiline isik
 
-<form display="block" id="eraIsikForm">
+<form autocomplete="off" display="block" id="eraIsikForm">
 
     <div class="form-group">
         <label for="exampleFormControlInput1">Eesnimi</label>
@@ -53,17 +53,20 @@
 
     <div class="form-group">
         <label for="exampleFormControlInput1">Makseviis</label>
-        <input type="text" class="form-control" id="Isikukood">
+        <select class="custom-select">
+            <option selected value="1">Sularaha</option>
+            <option value="2">Pangaülekanne</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label for="exampleFormControlInput1">Lisainfo</label>
         <input type="text" class="form-control" id="Lisainfo" >
     </div>
-    <button onclick="submitForm();" type="button" class="btn btn-primary">Loo uus üritus</button>
+    <button onclick="submitEraisik();" type="button" class="btn btn-primary">Lisa osaleja</button>
 </form>
 
-<form id="jurIsikForm"  style="display:none">
+<form autocomplete="off" id="jurIsikForm"  style="display:none">
 
     <div class="form-group">
         <label for="exampleFormControlInput1">Juriidiline nimi</label>
@@ -77,14 +80,34 @@
 
     <div class="form-group">
         <label for="exampleFormControlInput1">Makseviis</label>
-        <input type="text" class="form-control" id="Asukoht">
+        <select id="jurMakseviis" class="custom-select">
+            <option selected value="1">Sularaha</option>
+            <option value="2">Pangaülekanne</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label for="exampleFormControlInput1">Lisainfo</label>
         <input type="text" class="form-control" id="Lisainfo">
     </div>
-    <button onclick="submitForm();" type="button" class="btn btn-primary">Loo uus üritus</button>
+    <button onclick="submitJurisik();" type="button" class="btn btn-primary">Lisa osaleja</button>
+    <script>    function submitJurisik() {
+        {
+            var json = {
+                'Yritus_id': @ViewBag.Yritus[0].Id,
+                'Jurnimi': $('#Jur_nimi').val(),
+                'Firmakood': $('#Firmakood').val(),
+                'Makseviis': $('#jurMakseviis').val(),
+                'Lisainfo': $('#Lisainfo').val()
+            };
+            console.log(json);
+            $.ajax({
+                method: "POST",
+                url: window.location.origin+"/api/JurIsikApi",
+                data: json
+            });
+        }
+    }</script>
 </form>
 
 
@@ -101,5 +124,6 @@
             eraForm.style.display = "none";
         }
     };
+
 </script>
 
