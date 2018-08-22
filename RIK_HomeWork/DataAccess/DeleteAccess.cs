@@ -29,7 +29,7 @@ namespace RIK_HomeWork.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DBHelper.CnnVal("Events")))
             {
-                connection.Execute("dbo.JurIsik_Delete @Id", new { Id = id });
+                connection.Execute("dbo.EraIsik_Delete @Id", new { Id = id });
             }
         }
     }
