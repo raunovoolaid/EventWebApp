@@ -1,0 +1,70 @@
+﻿@using RIK_HomeWork.Models;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Juriidilise isiku muutmine";
+}
+
+<h2>Juriidilise isiku muutmine</h2>
+@foreach (JurIsik jurisik in ViewBag.Jurisik)
+{
+<form autocomplete="off" id="jurIsikForm">
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Juriidiline nimi</label>
+        <input type="text" class="form-control" id="Jur_nimi" value="@jurisik.Jurnimi.Trim()">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Registri kood</label>
+        <input type="datetime" class="form-control" id="Firmakood" value="@jurisik.FirmaKood.Trim()">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Makseviis</label>
+        <select id="Makseviis" class="custom-select">
+            <option @{ if (jurisik.Makseviis == 1) { @: selected
+                    } } value="1">
+                Sularaha
+            </option>
+            <option @{ if (jurisik.Makseviis == 2)
+                {
+                    @: selected
+                }
+                } value="2">
+                Pangaülekanne
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Lisainfo</label>
+        <input type="text" class="form-control" id="Lisainfo" value="@{if (jurisik.Lisainfo != null) {
+                @:@jurisik.Lisainfo.Trim()
+            }
+                    }">
+</div>
+
+<button onclick="submitJurisik();" type="button" class="btn btn-primary">Muuda osalist</button>
+    <script>
+
+function submitJurisik() {
+                    {
+                        var json = {
+                        "Id": @jurisik.Id,
+                        "Jurnimi": $('#Jur_nimi').val(),
+                        "Firmakood": $('#Firmakood').val(),
+                        "Makseviis": $('#Makseviis').val(),
+                        "Lisainfo": $('#Lisainfo').val()
+                        };
+                    console.log(json);
+                    $.ajax({
+                        method: "PUT",
+                        url: window.location.origin + "/api/JurIsikApi/"+@jurisik.Id,
+                        data: json,
+                        success: location.reload(true)
+                    });
+                }
+            }</script>
+</form>
+}

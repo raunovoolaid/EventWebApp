@@ -91,11 +91,12 @@
                 "Lisainfo": $('#Lisainfo').val()
 };
             console.log(json);
-            $.ajax({
+                $.ajax({
+                async: true,
                 method: "POST",
                 url: window.location.origin +"/api/EraIsikApi",
                 data: json,
-                success: location.reload()
+                success: location.reload(true)
                 });
         }
     }</script>
@@ -137,10 +138,11 @@
             };
             console.log(json);
             $.ajax({
+                async: true,
                 method: "POST",
                 url: window.location.origin+"/api/JurIsikApi",
                 data: json,
-                success: location.reload()
+                success: location.reload(true)
             });
         }
     }</script>
@@ -162,16 +164,18 @@
     };
     function deleteJurIsik(id) {
         $.ajax({
+            async: true,
             method: 'delete',
             url: window.location.origin + "/api/JurIsikApi/" + id,
-            success: location.reload()
+            success: location.reload(true)
         });
     }
     function deleteEraisik(id) {
         $.ajax({
+            async: true,
             method: 'delete',
             url: window.location.origin + "/api/EraIsikApi/"+id,
-            success: location.reload()
+            success: location.reload(true)
         });
     }
 

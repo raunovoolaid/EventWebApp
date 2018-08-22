@@ -28,7 +28,7 @@
 
         <div class="form-group">
             <label for="exampleFormControlInput1">Makseviis</label>
-            <select id="jurMakseviis" class="custom-select">
+            <select id="Makseviis" class="custom-select">
                 <option @{
                     if(eraisik.Makseviis==1)
                     {
@@ -57,7 +57,7 @@
                         "Eesnimi": $('#Eesnimi').val(),
                         "Perekonnanimi": $('#Perekonnanimi').val(),
                         "Isikukood": $('#Isikukood').val(),
-                        "Makseviis": $('#jurMakseviis').val(),
+                        "Makseviis": $('#Makseviis').val(),
                         "Lisainfo": $('#Lisainfo').val()
                     };
                     console.log(json);
@@ -65,7 +65,7 @@
                         method: "PUT",
                         url: window.location.origin + "/api/EraIsikApi/"+@eraisik.Id,
                         data: json,
-                        success: location.reload()
+                        success: location.reload(true)
                     });
                 }
             }</script>
