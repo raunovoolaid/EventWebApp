@@ -190,6 +190,7 @@
     <Compile Include="Controllers\JurIsikApiController.cs" />
     <Compile Include="Controllers\LisaOsalejaController.cs" />
     <Compile Include="Controllers\LisaYritusController.cs" />
+    <Compile Include="Controllers\MuudaEraisikController.cs" />
     <Compile Include="Controllers\YritusApiController.cs" />
     <Compile Include="DataAccess\DeleteAccess.cs" />
     <Compile Include="DataAccess\GetAccess.cs" />
@@ -263,6 +264,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\LisaYritus\Index.cshtml" />
     <Content Include="Views\LisaOsaleja\Index.cshtml" />
+    <Content Include="Views\MuudaEraisik\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

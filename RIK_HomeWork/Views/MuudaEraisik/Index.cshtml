@@ -1,0 +1,73 @@
+﻿@using RIK_HomeWork.Models;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Eraisiku muutmine";
+}
+
+<h2>Eraisiku muutmine</h2>
+@foreach (Eraisik eraisik in ViewBag.Eraisik) {
+    <form autocomplete="off" display="block" id="eraIsikForm">
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Eesnimi</label>
+            <input type="text" class="form-control" id="Eesnimi" value="@eraisik.Eesnimi.Trim()">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Perenimi</label>
+            <input type="datetime" class="form-control" id="Perekonnanimi" value="@eraisik.Perekonnanimi.Trim()">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Isikukood</label>
+            <input type="text" class="form-control" id="Isikukood" value="@eraisik.Isikukood.Trim()">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Makseviis</label>
+            <select id="jurMakseviis" class="custom-select">
+                <option @{
+                    if(eraisik.Makseviis==1)
+                    {
+                        @:selected
+                    }
+                } value="1">Sularaha</option>
+                <option @{
+                    if(eraisik.Makseviis==2)
+                    {
+                        @:selected
+                    }
+                }value="2">Pangaülekanne</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Lisainfo</label>
+            <input type="text" class="form-control" id="Lisainfo" value="@eraisik.Lisainfo">
+        </div>
+        <button onclick="submitEraisik();" type="button" class="btn btn-primary">Muuda osalist</button>
+        <script>
+            function submitEraisik() {
+                {
+                    var json = {
+                        "Id": @eraisik.Id,
+                        "Eesnimi": $('#Eesnimi').val(),
+                        "Perekonnanimi": $('#Perekonnanimi').val(),
+                        "Isikukood": $('#Isikukood').val(),
+                        "Makseviis": $('#jurMakseviis').val(),
+                        "Lisainfo": $('#Lisainfo').val()
+                    };
+                    console.log(json);
+                    $.ajax({
+                        method: "PUT",
+                        url: window.location.origin + "/api/EraIsikApi/"+@eraisik.Id,
+                        data: json,
+                        success: location.reload()
+                    });
+                }
+            }</script>
+    </form>
+    }

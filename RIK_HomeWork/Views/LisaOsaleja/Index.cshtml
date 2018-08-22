@@ -26,15 +26,20 @@
                 }
                 @foreach (Eraisik eraisik in ViewBag.Eraisik)
                 {
-                    <tr>
-                        <td>@eraisik.Eesnimi  @eraisik.Perekonnanimi</td>
-                        <td>@eraisik.Isikukood</td>
-                        <td>
-                            <button onclick="deleteEraisik(@eraisik.Id);" type="button" class="close" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>@eraisik.Eesnimi  @eraisik.Perekonnanimi</td>
+                    <td>@eraisik.Isikukood</td>
+                    <td>
+                        <button type="button" class="close" aria-label="Close">
+                            <span>@Html.ActionLink("Osalise detailvaade", "../MuudaEraisik/Index/" + eraisik.Id)</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="deleteEraisik(@eraisik.Id);" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </td>
+                </tr>
                 }
             </table>
         </div>
